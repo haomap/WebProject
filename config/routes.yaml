@@ -1,0 +1,7 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+# # config/routes.yaml
+# index:
+#     path: /
+#     controllers: App\Controller\ProjectController::listsp
