@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admintheme.html.twig' %}
 
 {% block title %}Product{% endblock %}
 
@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ product.id }}</td>
             </tr>
             <tr>
@@ -16,26 +16,31 @@
                 <td>{{ product.name }}</td>
             </tr>
             <tr>
+                <th>Category</th>
+                <td>{{ product.category }}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{ product.brand }}</td>
+            </tr>
+            <tr>
+                <th>Supplier</th>
+                <td>{{ product.supplier }}</td>
+            </tr>
+            <tr>
                 <th>Image</th>
-                <td>{{ product.image }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ product.image) }}" style="width: 100px;" alt="{{ product.name }}"></td>
             </tr>
             <tr>
                 <th>Price</th>
-                <td>{{ product.price }}</td>
-            </tr>
-
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ asset('uploads/images/' ~ product.image) }}"
-                style = "width: 100px;" alt="Product Image" />
-                </td>
+                <td>${{ product.price }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_index') }}">back to list</a>
+    <a href="{{ path('app_product_index') }}" class="btn btn-dark">Back to List</a>
 
-    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+    <a href="{{ path('app_product_edit', {'id': product.id}) }}" class="btn btn-warning">Edit</a>
 
     {{ include('product/_delete_form.html.twig') }}
 {% endblock %}

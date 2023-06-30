@@ -1,0 +1,35 @@
+{% extends 'admintheme.html.twig' %}
+
+{% block title %}Brand{% endblock %}
+
+{% block body %}
+    <h1>Brand</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brand in brands %}
+            <tr>
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+                <td>
+                    <a href="{{ path('app_brand_show', {'id': brand.id}) }}" class="btn btn-primary">Show</a>
+                    <a href="{{ path('app_brand_edit', {'id': brand.id}) }}" class="btn btn-warning">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brand_new') }}" class="btn btn-success">Create</a>
+{% endblock %}
